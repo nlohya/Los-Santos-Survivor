@@ -26,4 +26,11 @@ public class BulletBehaviour : MonoBehaviour
     public virtual void OnTriggerEnter2D(Collider2D collider)
     {
     }
+
+    IEnumerator SelfDestruct()
+    {
+        yield return new WaitForSeconds(5f);
+        Destroy(gameObject);
+        yield return null;
+    }
 }

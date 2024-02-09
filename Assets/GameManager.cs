@@ -144,6 +144,7 @@ public class GameManager : MonoBehaviour
 
    public void loseGame()
    {
+      player.StopAllCoroutines();
       SceneManager.LoadScene("End screen");
    }
 

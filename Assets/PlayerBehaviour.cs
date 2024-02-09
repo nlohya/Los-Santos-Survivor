@@ -14,8 +14,6 @@ public class PlayerBehaviour : MonoBehaviour
 
     private Rigidbody2D _rb;
     
-    private float currentDashTime;
-
     private bool _isStuned;
 
     private bool _dead;
@@ -42,7 +40,7 @@ public class PlayerBehaviour : MonoBehaviour
     void Update()
     {
         playerMovement();
-
+        
         playerRotation();
 
         weaponChange();
@@ -202,6 +200,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     public void dieFromVoid()
     {
+        if (_health <= 0) return;
         _dead = true;
         StartCoroutine(dieFromVoidRoutine());
     }
@@ -217,4 +216,5 @@ public class PlayerBehaviour : MonoBehaviour
         GameManager.instance.loseGame();
         yield return null;
     }
+    
 }
